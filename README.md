@@ -1,6 +1,6 @@
 <p>
-  <img align="left" src="./RAW/Images/UofR logo.jpg" alt="U of R logo" height="90px"/>
-  <img align="right" src="./RAW/Images/UR Connected Logo.png" alt="eHealth logo" height="90px"/>
+  <img align="left" src="./documentation/images/UofR logo.jpg" alt="U of R logo" height="90px"/>
+  <img align="right" src="./documentation/images/UR Connected Logo.png" alt="eHealth logo" height="90px"/>
 </p>
 <br/><br/><br/><br/>
 
@@ -10,5 +10,6 @@
 
 *Quick Access*:
 
-* [Contribution Guideline](./CONTRIBUTING.md)
 * [Project Documentation](./DOCUMENT.md)
+* [Contribution Guideline](./CONTRIBUTING.md)
+* [Style Guideline](./STYLEGUIDE.md)
