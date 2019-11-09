@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { GroupPageComponent } from './components/group-page/group-page.component';
 import { MessageComponent } from './components/message/message.component';
 import { MembersComponent } from './components/members/members.component';
+import { MessagesComponent } from './components/messages/messages.component';
+import { CreateMessageComponent } from './components/create-message/create-message.component';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { MembersComponent } from './components/members/members.component';
     AppComponent,
     GroupPageComponent,
     MessageComponent,
-    MembersComponent
+    MembersComponent,
+    MessagesComponent,
+    CreateMessageComponent
   ],
   imports: [
     BrowserModule,
