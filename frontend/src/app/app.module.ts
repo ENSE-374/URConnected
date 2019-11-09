@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GroupPageComponent } from './components/group-page/group-page.component';
 import { MessageComponent } from './components/message/message.component';
-import { MembersComponent } from './members/members.component';
+import { MembersComponent } from './components/members/members.component';
+
 
 @NgModule({
   declarations: [
