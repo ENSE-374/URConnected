@@ -9,6 +9,7 @@ import { MessageComponent } from './components/message/message.component';
 import { MembersComponent } from './components/members/members.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { CreateMessageComponent } from './components/create-message/create-message.component';
+import { MessageService } from './services/message.service';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { CreateMessageComponent } from './components/create-message/create-messa
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
