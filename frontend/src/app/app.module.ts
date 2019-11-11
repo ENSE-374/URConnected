@@ -10,6 +10,8 @@ import { MembersComponent } from './components/members/members.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { CreateMessageComponent } from './components/create-message/create-message.component';
 import { MessageService } from './services/message.service';
+import { TagComponent } from './components/tag/tag.component';
+import { TagsComponent } from './components/tags/tags.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { MessageService } from './services/message.service';
     MessageComponent,
     MembersComponent,
     MessagesComponent,
-    CreateMessageComponent
+    CreateMessageComponent,
+    TagComponent,
+    TagsComponent
   ],
   imports: [
     BrowserModule,
