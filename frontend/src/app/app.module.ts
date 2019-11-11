@@ -9,10 +9,10 @@ import { MessageComponent } from './components/message/message.component';
 import { MembersComponent } from './components/members/members.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { CreateMessageComponent } from './components/create-message/create-message.component';
-import { MessageService } from './services/message.service';
 import { TagComponent } from './components/tag/tag.component';
 import { TagsComponent } from './components/tags/tags.component';
 
+import { GroupsService } from '../app/services/groups.service'
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { TagsComponent } from './components/tags/tags.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [MessageService],
+  providers: [GroupsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
