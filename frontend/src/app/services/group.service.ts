@@ -30,9 +30,6 @@ export class GroupService {
   public getAllGroups(): Group[] {
     return this.groups;
   }
-  // public getAllSearchedGroups(tags): Group[]{
-    // return this.groups.filter(group => group.tags.some(data => searchTags.includes(data)));
-  // }
   public addMember(id: number) {
     this.groups.find(group => group.id === id).size = this.groups.find(group => group.id === id).size + 1;
   }

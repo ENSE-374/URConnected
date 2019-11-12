@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {find, get, pull} from 'lodash';
+import {SearchTagsService} from '../services/searchTags.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -11,10 +12,8 @@ export class SearchBarComponent implements OnInit {
   @ViewChild('tagInput', {static: false}) tagInputRef: ElementRef;
   searchTags: string[] = [];
   form: FormGroup;
-
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private searchTagService: SearchTagsService) {
   }
-
   ngOnInit() {
     this.form = this.fb.group({
       tag: [undefined],
@@ -41,6 +40,7 @@ export class SearchBarComponent implements OnInit {
       tag = tag.slice(0, -1);
     }
     if (tag.length > 0 && !find(this.searchTags, tag)) {
+      this.searchTagService.addSearchedTags(tag);
       this.searchTags.push(tag);
     }
   }
@@ -48,6 +48,7 @@ export class SearchBarComponent implements OnInit {
     if (!!tag) {
       pull(this.searchTags, tag);
     } else {
+      this.searchTagService.removingSearchedTags(tag);
       this.searchTags.splice(-1);
     }
   }

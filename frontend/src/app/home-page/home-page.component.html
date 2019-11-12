@@ -1,11 +1,10 @@
 <div>
   <h1>Search Groups</h1>
   <app-search-bar></app-search-bar>
-  <h6>To enter a group tag, press space or comma</h6>
-<!---
+  <h6>To enter a group tag - press space or comma, to remove a searched group - press backspace</h6>
   <ul class="groupCard">
     <li class="groupList" *ngFor="let group of groups">
-      <div class="card w-50 border-dark text-white bg-dark" *ngIf="getSearchedGroups(group.tags) === true">
+      <div class="card w-50 border-dark text-white bg-dark" *ngIf="compareSearchToTags(convertToStringArray(group.tags)) === true">
         <span style="text-align: center">Tags:</span>
         <span *ngFor="let tag of group.tags" class="badge">- {{tag.name}}</span>
         <p>Number of members: {{group.size}}</p>
@@ -15,7 +14,7 @@
       </div>
     </li>
   </ul>
-  --->
+
   <h1>My Groups</h1>
   <ul class="groupCard">
     <li class="groupList" *ngFor="let group of groups">
