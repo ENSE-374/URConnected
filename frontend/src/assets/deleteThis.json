@@ -1,0 +1,6 @@
+[
+    { "id": 1, "name": "anon", "message": "This is the first test message!"},  
+    { "id": 2, "name": "anon", "message": "This is the second test message."},
+    { "id": 3, "name": "anon", "message": "This is the third test message."},
+    { "id": 4, "name": "anon", "message": "This is the fourth test message."}
+]
