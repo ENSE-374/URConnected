@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { GroupsService} from '../../services/groups.service';
 import { Message } from '../../models/Message';
 
@@ -19,5 +19,7 @@ export class MessagesComponent implements OnInit {
     .subscribe(data => this.messages = data,
               error => this.errorMsg = error);
   }
+
+  @Input() event: Message;
 
 }

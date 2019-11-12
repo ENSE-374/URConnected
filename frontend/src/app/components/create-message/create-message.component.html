@@ -1,4 +1,4 @@
 <div>
     <textarea rows="6" style="width:100%" placeholder="Send a message." value = "{{ createMessage }}" id = "createMessage"></textarea>
-    <button type="button" value = "Submit" (click) = "newMessage($event)">Submit</button>
+    <button type="button" value = "Submit" (click) = "newMessage($event)" (click) = "postMessage($event)">Submit</button>
 </div>

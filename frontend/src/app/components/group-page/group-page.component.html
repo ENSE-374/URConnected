@@ -3,7 +3,7 @@
    <div class = "container">
       <div class = "row">
          <div class = "col-7">
-               <app-messages></app-messages>
+               <app-messages [event] ="postMessage"></app-messages>
          </div>
          <div class = "col-auto">
                <app-members></app-members>
@@ -11,7 +11,7 @@
       </div>
       <div class = "row">
            <div class = "col-7"> 
-                 <app-create-message></app-create-message>
+                 <app-create-message (postMessage)="messageSubmitted($event)"></app-create-message>
             </div>
       </div>
    </div>

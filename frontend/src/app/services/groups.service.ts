@@ -23,17 +23,15 @@ export class GroupsService {
   }
 
   //URL for create messages
-  private _URLCreateMessage:string = "/assets/deleteThis.json";
+  private _URLCreateMessage:string = "/assets/deleteThis3.json";
  
-  createMessage(data:Message):Observable<object>{
-    console.log(data);
-    return this.http.post(this._URLCreateMessage, data)
-    .pipe(tap(result => result));
+  createMessage(data:Message):Observable<Message>{
+    //console.log(data, "service");
+    return this.http.post<Message>(this._URLCreateMessage, data)
+          .pipe(tap(result => result),
+            catchError(this.errorHandler));
   }
 
-  errorHandler(error: HttpErrorResponse){
-    return throwError(error.message || "Server Error");
-  }
 
   //URL for get tags
   private _URLTag:string = "/assets/deleteThis2.json";
@@ -44,10 +42,14 @@ export class GroupsService {
   }
 
   //URL for get members
-  private _URLMembers = 'someURL';
+  private _URLMembers = '/assets/deleteThis3.json';
   getMembers():Observable<Member[]> {
     return this.http.get<Member[]>(this._URLMembers)
            .pipe(catchError(this.errorHandler));
+  }
+
+ errorHandler(error: HttpErrorResponse){
+    return throwError(error.message || "Server Error");
   }
 
 }
