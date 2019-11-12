@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {GroupService} from '../services/group.service';
 import {Group} from '../models/group.model';
+import {SearchTagsService} from '../services/searchTags.service';
+import {Tag} from '../models/tag.model';
 
 @Component({
   selector: 'app-home-page',
@@ -10,7 +12,7 @@ import {Group} from '../models/group.model';
 export class HomePageComponent implements OnInit {
   groups: Group[] = [];
 
-  constructor(private groupService: GroupService) {
+  constructor(private groupService: GroupService, private searchTagService: SearchTagsService) {
   }
 
   ngOnInit() {
@@ -30,7 +32,13 @@ export class HomePageComponent implements OnInit {
     this.groups = this.groupService.getAllGroups();
     this.groupService.addMember(id);
   }
-  // getSearchedGroups(tags): Group[] {
-   // return this.groupService.getAllSearchedGroups();
-  // }
+
+  compareSearchToTags(tags: string[]): boolean {
+    return tags.some(data => this.searchTagService.getSearchedTags().includes(data));
+  }
+
+  convertToStringArray(tags: Tag[]): string[] {
+    // ERROR POINT HERE, solve how to return the Tag[name] array as a string array
+    return tags.map(tag => tag.name);
+  }
 }
