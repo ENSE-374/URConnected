@@ -1,0 +1,11 @@
+<div [formGroup]="form">
+  <div class="search-bar-tag" (click)="focusTagInput()">
+	<span class="tag-item" *ngFor="let tag of searchTags">
+          {{tag}}
+    <span class="remove-tag" (click)="removeTag(tag)">×</span>
+        </span>
+    <label>
+      <input placeholder="Enter group tag" #tagInput type="text" class="input-tag" (keyup)="onKeyUp($event)" formControlName="tag">
+    </label>
+  </div>
+</div>
