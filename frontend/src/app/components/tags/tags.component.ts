@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GroupsService } from '../../services/groups.service';
-import { Tag } from '../../models/Tag';
+import { GroupService } from '../../services/group.service';
+import { Tag } from '../../models/tag.model';
 
 @Component({
   selector: 'app-tags',
@@ -11,7 +11,7 @@ export class TagsComponent implements OnInit {
   
   tags:Tag[];
   public errorMsg;
-  constructor(private _groupService:GroupsService) { }
+  constructor(private _groupService:GroupService) { }
 
   ngOnInit() {
     this._groupService.getTags()

@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { GroupsService} from '../../services/groups.service';
+import { GroupService} from '../../services/group.service';
 import { Message } from '../../models/Message'
 
 @Component({
@@ -9,7 +9,7 @@ import { Message } from '../../models/Message'
 })
 export class CreateMessageComponent implements OnInit {
 
-  constructor(private _groupsService:GroupsService) { }
+  constructor(private _groupsService:GroupService) { }
 
   ngOnInit() {
   }
@@ -28,10 +28,11 @@ export class CreateMessageComponent implements OnInit {
    }
 
   @Output() eventClicked = new EventEmitter<Message>();
-  postMessage(message){
-    const toSend:Message = message.target.parentNode.querySelector('#createMessage').value;
-        this.eventClicked.emit(toSend);
-        //console.log("PostMessage", toSend);
+  postMessage(message:Event){
+    //const toSend:Message = message.target.parentNode.querySelector('#createMessage').value;
+    const DummyMessage:Message = { id: 1, group_id: 5, sender: 1,  "text": "This is the first test message!"}
+        this.eventClicked.emit(DummyMessage);
+        console.log("PostMessage", DummyMessage);
   }
  
 

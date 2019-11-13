@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GroupsService} from '../../services/groups.service';
+import { GroupService} from '../../services/group.service';
 import { Member } from '../../models/Member';
 
 @Component({
@@ -11,12 +11,9 @@ export class MembersComponent implements OnInit {
   
   members:Member[];
   public errorMsg;
-  constructor(private _groupsService:GroupsService) { }
+  constructor(private _groupsService:GroupService) { }
 
   ngOnInit() {
-    this._groupsService.getMembers()
-    .subscribe(data => this.members = data,
-               error => this.errorMsg = error);
   }
 
 }

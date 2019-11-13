@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { GroupsService} from '../../services/groups.service';
+import { GroupService} from '../../services/group.service';
 import { Message } from '../../models/Message';
 
 @Component({
@@ -11,7 +11,7 @@ export class MessagesComponent implements OnInit {
 
   messages:Message[];
   public errorMsg;
-  constructor(private _groupsService:GroupsService) { }
+  constructor(private _groupsService:GroupService) { }
 
   ngOnInit() {
     // TODO: pass an group id

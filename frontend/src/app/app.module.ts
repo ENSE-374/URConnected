@@ -16,7 +16,7 @@ import {NavbarComponent} from './components/navbar/navbar.component';
 import {HomePageComponent} from './components/home-page/home-page.component';
 import {SearchBarComponent} from './components/search-bar/search-bar.component';
 
-import { GroupsService } from '../app/services/groups.service'
+import { GroupService } from '../app/services/group.service'
 
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ import { GroupsService } from '../app/services/groups.service'
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [GroupsService],
+  providers: [GroupService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
