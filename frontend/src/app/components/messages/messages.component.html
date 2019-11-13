@@ -1,0 +1,8 @@
+<div>
+    <div>{{ errorMsg }}</div>
+    <div *ngIf="event">
+        <div>{{ event.message }}</div>
+    </div>
+    <app-message *ngFor="let message of messages" [message]="message">
+    </app-message>
+</div>

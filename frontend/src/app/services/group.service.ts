@@ -2,34 +2,30 @@ import {Injectable} from '@angular/core';
 import {Group} from '../models/group.model';
 import {Tag} from '../models/tag.model';
 
+import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
+import { Message } from '../models/Message';
+import { Member } from '../models/Member'
+import { Observable, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root'
 })
 export class GroupService {
-  groups: Group[] = [
-    {
-      id: 1,
-      tags: [new Tag('Engineering')],
-      size: 44,
-      isSubscribed: true,
-    },
-    {
-      id: 2,
-      tags: [new Tag('Engineering'), new Tag('Software')],
-      size: 55,
-      isSubscribed: false,
-    },
-    {
-      id: 3,
-      tags: [new Tag('Business'), new Tag('Accounting')],
-      size: 20,
-      isSubscribed: false,
-    }
+
+  constructor(private http:HttpClient) { }
+
+  groups: Group[] = [    
   ];
 
-  public getAllGroups(): Group[] {
-    return this.groups;
+  private _URLGroups = 'http://localhost:3000/groups';
+  public getAllGroups(): Observable<Group[]> {
+    return this.http.get<Group[]>(this._URLGroups)
+    .pipe(tap(result => result),
+      catchError(this.errorHandler));     
   }
+
+
   public addMember(id: number) {
     this.groups.find(group => group.id === id).size = this.groups.find(group => group.id === id).size + 1;
   }
@@ -49,6 +45,42 @@ export class GroupService {
   public unsubscribeToGroup(id: number) {
     this.groups.find(group => group.id === id).isSubscribed = false;
   }
-  constructor() {
+
+  //TODO: Update URLs for get/post Requests
+
+
+
+
+  getMessages(id: number):Observable<Message[]> {
+    //URL for get messages
+    const _URLMessages:string = `http://localhost:3000/groups/${id}`;
+    return this.http.get<Message[]>(_URLMessages)
+           .pipe(tap(result => result),
+             catchError(this.errorHandler));
+  }
+
+  //URL for create messages
+  private _URLCreateMessage:string = "http://localhost:3000/messages";
+ 
+  createMessage(data:string, groupId: number):Observable<Message>{
+   const toSend:Message =  {group_id: groupId, sender: "aaa1c2c35ef7a4e97b5e9955", text: data};
+
+   
+        return this.http.post<Message>(this._URLCreateMessage, toSend)
+          .pipe(tap(result => result),
+            catchError(this.errorHandler));
+  }
+
+
+  //URL for get tags
+  private _URLTag:string = "/assets/deleteThis2.json";
+  
+  getTags():Observable<Tag[]> {
+    return this.http.get<Tag[]>(this._URLTag)
+           .pipe(catchError(this.errorHandler));
+  }
+
+   errorHandler(error: HttpErrorResponse){
+    return throwError(error.message || "Server Error");
   }
 }
