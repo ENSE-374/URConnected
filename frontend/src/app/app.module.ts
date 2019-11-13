@@ -12,9 +12,9 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { CreateMessageComponent } from './components/create-message/create-message.component';
 import { TagComponent } from './components/tag/tag.component';
 import { TagsComponent } from './components/tags/tags.component';
-import {NavbarComponent} from './navbar/navbar.component';
-import {HomePageComponent} from './home-page/home-page.component';
-import {SearchBarComponent} from './search-bar/search-bar.component';
+import {NavbarComponent} from './components/navbar/navbar.component';
+import {HomePageComponent} from './components/home-page/home-page.component';
+import {SearchBarComponent} from './components/search-bar/search-bar.component';
 
 import { GroupsService } from '../app/services/groups.service'
 
