@@ -22,13 +22,6 @@ fs.readdirSync(routesPath).filter(file => {
 })
 
 /*
- * Setup routes for index
- */
-router.get('/', (req, res) => {
-  res.render('index')
-})
-
-/*
  * Handle 404 error
  */
 router.use('*', (req, res) => {
