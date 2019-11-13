@@ -1,6 +1,5 @@
 export class Message{
-    id:number;
     group_id:number;
-    sender:number;
+    sender:string;
     text:string;
 }

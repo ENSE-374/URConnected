@@ -14,30 +14,18 @@ import { catchError, tap } from 'rxjs/operators';
 export class GroupService {
 
   constructor(private http:HttpClient) { }
-  groups: Group[] = [
-    {
-      id: 1,
-      tags: [new Tag('Engineering')],
-      size: 44,
-      isSubscribed: true,
-    },
-    {
-      id: 2,
-      tags: [new Tag('Engineering'), new Tag('Software')],
-      size: 55,
-      isSubscribed: false,
-    },
-    {
-      id: 3,
-      tags: [new Tag('Business'), new Tag('Accounting')],
-      size: 20,
-      isSubscribed: false,
-    }
+
+  groups: Group[] = [    
   ];
 
-  public getAllGroups(): Group[] {
-    return this.groups;
+  private _URLGroups = 'http://localhost:3000/groups';
+  public getAllGroups(): Observable<Group[]> {
+    return this.http.get<Group[]>(this._URLGroups)
+    .pipe(tap(result => result),
+      catchError(this.errorHandler));     
   }
+
+
   public addMember(id: number) {
     this.groups.find(group => group.id === id).size = this.groups.find(group => group.id === id).size + 1;
   }
@@ -61,21 +49,24 @@ export class GroupService {
   //TODO: Update URLs for get/post Requests
 
 
-  //URL for get messages
-  private _URLMessages:string = "/assets/deleteThis.json";
+
 
   getMessages(id: number):Observable<Message[]> {
-    return this.http.get<Message[]>(this._URLMessages)
+    //URL for get messages
+    const _URLMessages:string = `http://localhost:3000/groups/${id}`;
+    return this.http.get<Message[]>(_URLMessages)
            .pipe(tap(result => result),
              catchError(this.errorHandler));
   }
 
   //URL for create messages
-  private _URLCreateMessage:string = "/assets/deleteThis3.json";
+  private _URLCreateMessage:string = "http://localhost:3000/messages";
  
-  createMessage(data:Message):Observable<Message>{
-    //console.log(data, "service");
-    return this.http.post<Message>(this._URLCreateMessage, data)
+  createMessage(data:string, groupId: number):Observable<Message>{
+   const toSend:Message =  {group_id: groupId, sender: "aaa1c2c35ef7a4e97b5e9955", text: data};
+
+   
+        return this.http.post<Message>(this._URLCreateMessage, toSend)
           .pipe(tap(result => result),
             catchError(this.errorHandler));
   }

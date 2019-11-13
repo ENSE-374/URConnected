@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Message } from '../../models/Message';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-group-page',
@@ -8,7 +9,7 @@ import { Message } from '../../models/Message';
 })
 export class GroupPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private location:Location) { }
 
   ngOnInit() {
   }
@@ -16,7 +17,6 @@ export class GroupPageComponent implements OnInit {
   public messageToPost: Message;
   messageSubmitted(event:Message){
     this.messageToPost = event;
-    console.log("messageSubmitted");
   }
 
 }
