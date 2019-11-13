@@ -35,9 +35,11 @@ const listInitOptions = async req => {
     const sortBy = buildSort(sort, order)
     const page = parseInt(req.query.page, 10) || 1
     const limit = parseInt(req.query.limit, 10) || 5
+    const populate = req.query.populate || null
     const options = {
       sort: sortBy,
       lean: true,
+      populate,
       page,
       limit
     }
@@ -107,12 +109,14 @@ module.exports = {
    * Gets item from database by id
    * @param {string} id - item id
    */
-  async getItem(id, model) {
+  async getItem(id, model, populate) {
     return new Promise((resolve, reject) => {
-      model.findById(id, (err, item) => {
-        itemNotFound(err, item, reject, 'NOT_FOUND')
-        resolve(item)
-      })
+      model
+        .findById(id, (err, item) => {
+          itemNotFound(err, item, reject, 'NOT_FOUND')
+          resolve(item)
+        })
+        .populate(populate)
     })
   },
 

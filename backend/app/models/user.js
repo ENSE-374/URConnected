@@ -24,46 +24,12 @@ const UserSchema = new mongoose.Schema(
       required: true,
       select: false
     },
-    role: {
-      type: String,
-      enum: ['user', 'admin'],
-      default: 'user'
-    },
     verification: {
       type: String
     },
     verified: {
       type: Boolean,
       default: false
-    },
-    phone: {
-      type: String
-    },
-    city: {
-      type: String
-    },
-    country: {
-      type: String
-    },
-    urlTwitter: {
-      type: String,
-      validate: {
-        validator(v) {
-          return v === '' ? true : validator.isURL(v)
-        },
-        message: 'NOT_A_VALID_URL'
-      },
-      lowercase: true
-    },
-    urlGitHub: {
-      type: String,
-      validate: {
-        validator(v) {
-          return v === '' ? true : validator.isURL(v)
-        },
-        message: 'NOT_A_VALID_URL'
-      },
-      lowercase: true
     },
     loginAttempts: {
       type: Number,

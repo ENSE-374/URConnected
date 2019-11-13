@@ -8,7 +8,7 @@ const config = {
 }
 const seeder = new Seeder(config)
 const collections = seeder.readCollectionsFromPath(path.resolve('./data'))
-
+console.log(collections)
 const main = async () => {
   try {
     await seeder.import(collections)
