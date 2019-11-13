@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import {HomePageComponent} from './home-page/home-page.component';
+import {RouterModule, Routes} from '@angular/router';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: HomePageComponent },
+  { path: 'home-page', component: HomePageComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

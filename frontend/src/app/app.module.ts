@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +12,9 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { CreateMessageComponent } from './components/create-message/create-message.component';
 import { TagComponent } from './components/tag/tag.component';
 import { TagsComponent } from './components/tags/tags.component';
+import {NavbarComponent} from './navbar/navbar.component';
+import {HomePageComponent} from './home-page/home-page.component';
+import {SearchBarComponent} from './search-bar/search-bar.component';
 
 import { GroupsService } from '../app/services/groups.service'
 
@@ -23,14 +27,20 @@ import { GroupsService } from '../app/services/groups.service'
     MessagesComponent,
     CreateMessageComponent,
     TagComponent,
-    TagsComponent
+    TagsComponent,
+    NavbarComponent,
+    HomePageComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule
   ],
   providers: [GroupsService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
