@@ -1,12 +1,17 @@
 <div>
-   <h3><app-tags></app-tags></h3>
+   <h3><app-tag  *ngFor="let tag of groupTags;" [tag] = "tag">
+   </app-tag></h3>
    <div class = "container">
       <div class = "row">
          <div class = "col-7">
-               <app-messages [event] ="postMessage"></app-messages>
+               <app-messages 
+               [event] = "postMessage" 
+               (groupTags)='updateTags($event)'
+               (groupMembers)='updateMembers($event)'>
+                </app-messages>
          </div>
-         <div class = "col-auto">
-               <app-members></app-members>
+         <div class = "col-auto"> Group Members
+               <app-members *ngFor="let member of groupMembers;" [member] = "member"></app-members>
          </div>
       </div>
       <div class = "row">

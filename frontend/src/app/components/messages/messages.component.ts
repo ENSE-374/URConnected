@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GroupService} from '../../services/group.service';
 import { Message } from '../../models/Message';
-import { Member } from '../../models/Member'
+import { Member } from '../../models/Member';
+import { Tag } from '../../models/tag.model';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -14,21 +15,36 @@ export class MessagesComponent implements OnInit {
 
   messages:Message[];
   members:Member[];
+  tags:Tag[];
+  @Output() groupMembers = new EventEmitter();
+  @Output() groupTags = new EventEmitter();
+
+  sendTags(){
+    this.groupTags.emit(this.tags);
+  } 
+  sendMembers(){
+    this.groupMembers.emit(this.members);
+  }
   public errorMsg;
   constructor(private _groupsService:GroupService, private location:Location) {        
    }
 
   ngOnInit() {
-    // TODO: pass an group id
-    this._groupsService.getMessages(this.location.getState()["id"])
+
+  this._groupsService.getMessages(this.location.getState()["id"])
     .subscribe(data => {
-      
-      this.messages = data['messages']
-      this.members = data['members']
+      this.messages = data['messages'];
+      this.members = data['members'];
+      this.tags = data['tags'];
+      this.sendTags();
+      this.sendMembers();
+     // console.log("data:", data);
     },
         error => this.errorMsg = error);
-
   }
+
+
+  
 
   @Input() event: Message;
 

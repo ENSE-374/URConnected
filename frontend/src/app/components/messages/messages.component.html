@@ -3,6 +3,7 @@
     <div *ngIf="event">
         <div>{{ event.message }}</div>
     </div>
-    <app-message *ngFor="let message of messages" [message]="message">
+    <app-message *ngFor="let message of messages; let member of members;" 
+    [message]='message' [member]='member'>
     </app-message>
 </div>

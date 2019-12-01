@@ -10,10 +10,11 @@ import { Member } from 'src/app/models/Member';
 export class MessageComponent implements OnInit {
   @Input() message:Message;
   @Input() member:Member;
-
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {    
+    console.log("message:", this.message);
+    console.log("member:", this.member);
   }
 
 }
