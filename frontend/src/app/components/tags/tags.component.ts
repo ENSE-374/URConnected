@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { GroupService } from '../../services/group.service';
 import { Tag } from '../../models/tag.model';
 
@@ -9,14 +9,12 @@ import { Tag } from '../../models/tag.model';
 })
 export class TagsComponent implements OnInit {
   
-  tags:Tag[];
+  @Input() tags:Tag;
   public errorMsg;
   constructor(private _groupService:GroupService) { }
 
   ngOnInit() {
-    this._groupService.getTags()
-    .subscribe(data => this.tags = data,
-              error => this.errorMsg = error);
+
   }
 
 }

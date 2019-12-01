@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Message } from '../../models/Message';
 import { Location } from '@angular/common';
+import { Member } from 'src/app/models/Member';
+import { Tag } from '../../models/tag.model';
 
 @Component({
   selector: 'app-group-page',
@@ -11,12 +13,24 @@ export class GroupPageComponent implements OnInit {
 
   constructor(private location:Location) { }
 
-  ngOnInit() {
-  }
+  @Input() groupMembers:Member[];
+  @Input() groupTags:Tag[];
 
+  ngOnInit() {    
+   
+  }
+  updateTags(tags){
+    this.groupTags = tags;
+  }
+  updateMembers(members){
+    console.log("Recieved members: ", members);
+    this.groupMembers = members;
+  }
+  
   public messageToPost: Message;
   messageSubmitted(event:Message){
     this.messageToPost = event;
   }
+
 
 }
