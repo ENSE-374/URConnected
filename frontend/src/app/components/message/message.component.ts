@@ -8,13 +8,15 @@ import { Member } from 'src/app/models/Member';
   styleUrls: ['./message.component.sass']
 })
 export class MessageComponent implements OnInit {
-  @Input() message:Message;
-  @Input() member:Member;
+  @Input() messagesToDisplay: {
+    message:Message;
+    member:Member;
+  };
   constructor() { }
 
   ngOnInit() {    
-    console.log("message:", this.message);
-    console.log("member:", this.member);
+  //   console.log("message:", this.message);
+  //   console.log("member:", this.member);
   }
 
 }

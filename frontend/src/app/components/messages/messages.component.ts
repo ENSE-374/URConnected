@@ -16,12 +16,20 @@ export class MessagesComponent implements OnInit {
   messages:Message[];
   members:Member[];
   tags:Tag[];
+
+  messagesToDisplay: {
+    message: Message;
+    member: Member;
+  }[];
+
+
   @Output() groupMembers = new EventEmitter();
   @Output() groupTags = new EventEmitter();
 
   sendTags(){
     this.groupTags.emit(this.tags);
   } 
+
   sendMembers(){
     this.groupMembers.emit(this.members);
   }
@@ -38,11 +46,28 @@ export class MessagesComponent implements OnInit {
       this.tags = data['tags'];
       this.sendTags();
       this.sendMembers();
+      this.populateMessagesToDisplay();
      // console.log("data:", data);
     },
         error => this.errorMsg = error);
   }
 
+  populateMessagesToDisplay()
+  { 
+    this.messagesToDisplay = [];
+    for(let i = 0; i < this.messages.length; i++)
+    {
+      let newMessageToDisplay = 
+      {
+        message: this.messages[i], 
+        member: this.members[i]
+      };
+      console.log(newMessageToDisplay);
+      this.messagesToDisplay.push(newMessageToDisplay);
+    }
+    console.log("messageToDisplay: ");
+    console.log( this.messagesToDisplay);
+  }
 
   
 

@@ -23,8 +23,7 @@ export class GroupPageComponent implements OnInit {
     this.groupTags = tags;
   }
   updateMembers(members){
-    console.log("Recieved members: ", members);
-    this.groupMembers = members;
+   this.groupMembers = members;
   }
   
   public messageToPost: Message;
