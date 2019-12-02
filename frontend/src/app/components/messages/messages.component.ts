@@ -57,16 +57,19 @@ export class MessagesComponent implements OnInit {
     this.messagesToDisplay = [];
     for(let i = 0; i < this.messages.length; i++)
     {
-      let newMessageToDisplay = 
+      for(let j = 0; j < this.members.length; j++)
       {
-        message: this.messages[i], 
-        member: this.members[i]
-      };
-      console.log(newMessageToDisplay);
-      this.messagesToDisplay.push(newMessageToDisplay);
+        if(this.messages[i].sender == this.members[j]._id)
+        {
+          let newMessageToDisplay = 
+          {
+            message: this.messages[i], 
+            member: this.members[j]
+          };        
+          this.messagesToDisplay.push(newMessageToDisplay);
+        }
+      }
     }
-    console.log("messageToDisplay: ");
-    console.log( this.messagesToDisplay);
   }
 
   
