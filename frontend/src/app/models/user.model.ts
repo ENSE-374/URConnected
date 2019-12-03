@@ -4,7 +4,7 @@ export class User {
   public _id:any;
   public name: string;
   public email: string;
-  public  groups: Group[];
+  public groups: Group[];
 
   constructor(name: string, email: string, groups: Group[]) {
     this.name = name;
