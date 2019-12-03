@@ -1,0 +1,14 @@
+.center{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.border-10{
+  border-style:solid;
+   border-width: 10px;
+  }
+
+  .border-5{
+    border-style:solid;
+     border-width: 5px;
+    }

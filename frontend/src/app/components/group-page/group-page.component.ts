@@ -7,7 +7,7 @@ import { Tag } from '../../models/tag.model';
 @Component({
   selector: 'app-group-page',
   templateUrl: './group-page.component.html',
-  styleUrls: ['./group-page.component.sass']
+  styleUrls: ['./group-page.component.css']
 })
 export class GroupPageComponent implements OnInit {
 

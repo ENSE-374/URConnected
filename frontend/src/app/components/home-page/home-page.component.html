@@ -6,9 +6,10 @@
     <li class="groupList" *ngFor="let group of groups">
       <div class="card w-50 border-dark text-white bg-dark" *ngIf="compareSearchToTags(convertToStringArray(group.tags)) === true">
         <span style="text-align: center">Tags:</span>
-        <span *ngFor="let tag of group.tags" class="badge">- {{tag.name}}</span>
-        <p>Number of members: {{group.size}}</p>
-        <button *ngIf="group.isSubscribed" class="button1 btn-lg bg-light text-dark" >Join Group Messenger <span class="fa fa-users"></span></button>
+        <span *ngFor="let tag of group.tags" class="badge" style="font-size:large">- {{tag.name}}</span>
+        <p style="font-size:large">Number of members: {{group.size}}</p>
+        <a routerLink="/group-page" [state]="{id: group['_id']}" style="text-align: center;">
+          <button *ngIf="group.isSubscribed" class="button1 btn-lg bg-light text-dark">Join Group Messenger <span class="fa fa-users"></span></button></a>
         <button *ngIf="group.isSubscribed" (click)="unsubscribeToGroup(group.id)" class="button1 btn-lg bg-danger text-white">Unsubscribe <span class="fa fa-minus-square"></span></button>
         <button *ngIf="!group.isSubscribed" (click)="subscribeToGroup(group.id)" class="button1 btn-lg bg-success text-white">Subscribe <span class="fa fa-plus-square"></span></button>
       </div>
@@ -20,9 +21,10 @@
     <li class="groupList" *ngFor="let group of groups">
       <div class="card w-50 border-dark text-white bg-dark" *ngIf="group.isSubscribed === true">
         <span style="text-align: center">Tags:</span>
-        <span *ngFor="let tag of group.tags" class="badge">- {{tag.name}}</span>
-        <p>Number of members: {{group.size}}</p>
-        <a routerLink="/group-page" [state]="{id: group['_id']}"><button *ngIf="group.isSubscribed" class="button1 btn-lg bg-light text-dark">Join Group Messenger <span class="fa fa-users"></span></button></a>
+        <span *ngFor="let tag of group.tags" class="badge" style="font-size:large">- {{tag.name}}</span>
+        <p style="font-size:large">Number of members: {{group.size}}</p>
+        <a routerLink="/group-page" [state]="{id: group['_id']}" style="text-align: center;">
+        <button *ngIf="group.isSubscribed" class="button1 btn-lg bg-light text-dark">Join Group Messenger <span class="fa fa-users"></span></button></a>
         <button *ngIf="group.isSubscribed" (click)="unsubscribeToGroup(group.id)" class="button1 btn-lg bg-danger text-white">Unsubscribe <span class="fa fa-minus-square"></span></button>
       </div>
     </li>
@@ -33,9 +35,10 @@
     <li class="groupList" *ngFor="let group of groups">
       <div class="card w-50 border-dark text-white bg-dark">
         <span class = "tags">Tags:</span>
-      <span *ngFor="let tag of group.tags" class="badge">- {{tag.name}}</span>
-      <p>Number of members: {{group.size}}</p>
-        <button *ngIf="group.isSubscribed" class="button1 btn-lg bg-light text-dark">Join Group Messenger <span class="fa fa-users"></span></button>
+      <span *ngFor="let tag of group.tags" class="badge" style="font-size:large">- {{tag.name}}</span>
+      <p style="font-size:large">Number of members: {{group.size}}</p>
+      <a routerLink="/group-page" [state]="{id: group['_id']}" style="text-align: center;">
+        <button *ngIf="group.isSubscribed" class="button1 btn-lg bg-light text-dark">Join Group Messenger <span class="fa fa-users"></span></button></a>
       <button *ngIf="group.isSubscribed" (click)="unsubscribeToGroup(group.id)" class="button1 btn-lg bg-danger text-white">Unsubscribe <span class="fa fa-minus-square"></span></button>
         <button *ngIf="!group.isSubscribed" (click)="subscribeToGroup(group.id)" class="button1 btn-lg bg-success text-white">Subscribe <span class="fa fa-plus-square"></span></button>
       </div>
