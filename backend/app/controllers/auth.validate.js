@@ -26,9 +26,9 @@ exports.register = [
     .isEmpty()
     .withMessage('IS_EMPTY')
     .isLength({
-      min: 5
+      min: 6
     })
-    .withMessage('PASSWORD_TOO_SHORT_MIN_5'),
+    .withMessage('PASSWORD_TOO_SHORT_MIN_6'),
   (req, res, next) => {
     validationResult(req, res, next)
   }

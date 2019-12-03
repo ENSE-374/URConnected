@@ -16,7 +16,10 @@ import {HomePageComponent} from './components/home-page/home-page.component';
 import {SearchBarComponent} from './components/search-bar/search-bar.component';
 import { ViewProfileComponent } from './components/view-profile/view-profile.component'
 import { GroupService } from '../app/services/group.service';
-
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AlertComponent } from './components/alert/alert.component';
+import { VerifyComponent } from './components/verify/verify.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,11 @@ import { GroupService } from '../app/services/group.service';
     NavbarComponent,
     HomePageComponent,
     SearchBarComponent,
-    ViewProfileComponent
+    ViewProfileComponent,
+    LoginComponent,
+    RegisterComponent,
+    AlertComponent,
+    VerifyComponent
   ],
   imports: [
     BrowserModule,

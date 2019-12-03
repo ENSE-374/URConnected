@@ -1,10 +1,10 @@
 {
   "registration": {
-    "SUBJECT": "Verify your email at URConnected",
-    "MESSAGE": "<p>Hello %s.</p> <p>Welcome! To verify your email, please click in this link:</p> <p>%s/verify/%s</p> <p>Thank you.</p>"
+    "SUBJECT": "Verify your email at UR Connected",
+    "MESSAGE": "<p>Hello %s.</p> <p> Welcome to the UR Connected! To verify your account, please go to this <a href='%s/verify/'>link</a> then enter the following activation code: %s</p> <p>Thank you.</p>"
   },
   "forgotPassword": {
-    "SUBJECT": "Password recovery at URConnected",
+    "SUBJECT": "Password recovery at UR Connected",
     "MESSAGE": "<p>To recover the password for user: %s</p> <p>click the following link:</p> <p>%s/reset/%s</p> <p>If this was a mistake, you can ignore this message.</p> <p>Thank you.</p>"
   }
 }

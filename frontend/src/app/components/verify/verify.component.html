@@ -1,0 +1,21 @@
+<h2>Verify Page</h2>
+<p>
+    Please Enter the verification code that was sent to your email address
+</p>
+<form [formGroup]="verifyForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="id">Verification Code</label>
+        <input type="text" formControlName="id" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.id.errors }" />
+        <div *ngIf="submitted && f.id.errors" class="invalid-feedback">
+            <div *ngIf="f.id.errors.required">Code is required!</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Verify
+        </button>
+    </div>
+</form>

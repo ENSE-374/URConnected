@@ -5,7 +5,7 @@
   </a>
 
   <div class="navbar-header">
-    <div class="btn-group" style="font-size:24px;">
+    <div class="btn-group" *ngIf="currentUser" style="font-size:24px;">
       <button type="button" class="btn btn-default btn-light btn-circle btn-md dropdown-toggle">
       <span class="fa fa-commenting-o fa-3x"></span>
       </button>
@@ -14,8 +14,8 @@
       <span class="fa fa-user-o fa-3x"></span>
       </button>
       <ul class="dropdown-menu">
-        <li><a href="#">View Profile</a></li>
-        <li><a href="#">Logout</a></li>
+        <li><a class="nav-item nav-link">View Profile</a></li>
+        <li><a class="nav-item nav-link" (click)="logout()">Logout</a></li>
       </ul>
     </div>
   </div>
