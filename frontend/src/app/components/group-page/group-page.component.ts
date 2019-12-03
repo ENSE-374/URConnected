@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Message } from '../../models/Message';
 import { Location } from '@angular/common';
-import { Member } from 'src/app/models/Member';
+import { User } from 'src/app/models/user.model';
 import { Tag } from '../../models/tag.model';
 
 @Component({
@@ -13,7 +13,7 @@ export class GroupPageComponent implements OnInit {
 
   constructor(private location:Location) { }
 
-  @Input() groupMembers:Member[];
+  @Input() groupMembers:User[];
   @Input() groupTags:Tag[];
 
   ngOnInit() {    
@@ -30,6 +30,4 @@ export class GroupPageComponent implements OnInit {
   messageSubmitted(event:Message){
     this.messageToPost = event;
   }
-
-
 }

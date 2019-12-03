@@ -1,0 +1,17 @@
+<div class="container">
+    <div class = "row"><H2> Profile Page </H2></div>
+    <div class = "row">   
+        <div class = "col-5"><H4>Name: </H4>
+            <br/> 
+            <textarea rows="1" style="width:80%" id = "name">{{ User.name }}</textarea>
+        </div>
+        <div class = "col-auto">
+            <h4>Profile Picture: </h4>
+        </div>
+    </div> 
+    <div ><H4>Bio:  </H4>
+        <br/> 
+        <textarea rows="8" style="width:80%" id = "bio">{{ User.bio }}</textarea>
+    </div>
+    <button type="button" value = "Submit" (click) = "updateUser($event)">Submit Changes</button>          
+</div>

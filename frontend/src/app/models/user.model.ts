@@ -1,6 +1,7 @@
 import {Group} from './group.model';
 
 export class User {
+  public _id:any;
   public name: string;
   public email: string;
   public  groups: Group[];

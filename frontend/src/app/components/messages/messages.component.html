@@ -3,7 +3,7 @@
     <div *ngIf="event">
         <div>{{ event.message }}</div>
     </div>
-    <app-message *ngFor="let messagesToDisplay of messagesToDisplay;" 
+    <app-message  class="card bg-dark text-white" *ngFor="let messagesToDisplay of messagesToDisplay;" 
     [messagesToDisplay]='messagesToDisplay'>
     </app-message>
 </div>

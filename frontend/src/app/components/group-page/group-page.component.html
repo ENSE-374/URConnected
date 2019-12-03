@@ -1,23 +1,29 @@
 <div>
-   <h3><app-tag  *ngFor="let tag of groupTags;" [tag] = "tag">
-   </app-tag></h3>
    <div class = "container">
       <div class = "row">
-         <div class = "col-7">
-               <app-messages 
+         <h3><app-tag class = "card bg-secondary text-white tag-pad col-auto" *ngFor="let tag of groupTags;" [tag] = "tag">
+         </app-tag></h3>
+      </div>      
+   </div>   
+   <div class = "container" >
+      <div class = "row">
+         <div class = "col-9">
+               <h4>Recent messages:</h4>
+               <app-messages
                [event] = "postMessage" 
                (groupTags)='updateTags($event)'
                (groupMembers)='updateMembers($event)'>
                 </app-messages>
          </div>
-         <div class = "col-auto"> Group Members
+         <div class = "col-auto">
+               <h5>Group Members</h5>
                <app-members *ngFor="let member of groupMembers;" [member] = "member"></app-members>
          </div>
       </div>
       <div class = "row">
-           <div class = "col-7"> 
-                 <app-create-message (postMessage)="messageSubmitted($event)"></app-create-message>
-            </div>
+         <div class = "col-9"> 
+            <app-create-message (postMessage)="messageSubmitted($event)"></app-create-message>
+         </div>
       </div>
    </div>
 </div>
