@@ -15,9 +15,10 @@
                (groupMembers)='updateMembers($event)'>
                 </app-messages>
          </div>
-         <div class = "col-auto">
-               <h5>Group Members</h5>
+         <div class="card w-10 border-dark border-5">
+         <div class = "col-auto" style="font-weight: bold;"> Group Members
                <app-members *ngFor="let member of groupMembers;" [member] = "member"></app-members>
+         </div>
          </div>
       </div>
       <div class = "row">
@@ -26,4 +27,4 @@
          </div>
       </div>
    </div>
-</div>
+   </div>

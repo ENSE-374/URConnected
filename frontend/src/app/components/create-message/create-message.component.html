@@ -1,8 +1,5 @@
+<br>
 <div>
-    <h5>Post a message: </h5>
-    <div class = "card">
-        <textarea rows="6" style="width:100%" placeholder="Send a message." value = "{{ createMessage }}" id = "createMessage"></textarea>
-        <button type="button" value = "Submit" (click) = "newMessage($event)">Submit</button>
-    </div>
-    
+    <textarea rows="6" style="width:100%; font-weight: bold;" placeholder="Type a message..." value = "{{ createMessage }}" id = "createMessage"></textarea>
+    <button type="button" class= "btn btn-warning" style="font-weight:bold;" value = "Submit " (click) = "newMessage($event)">Send Message</button>
 </div>
