@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GroupService} from '../../services/group.service';
 import { Message } from '../../models/Message';
-import { Member } from '../../models/Member';
+import { User } from '../../models/user.model';
 import { Tag } from '../../models/tag.model';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
@@ -13,15 +13,16 @@ import { Location } from '@angular/common';
 })
 export class MessagesComponent implements OnInit {
 
+constructor(private _groupsService:GroupService, private location:Location) {        
+   }
   messages:Message[];
-  members:Member[];
+  members:User[];
   tags:Tag[];
 
   messagesToDisplay: {
     message: Message;
-    member: Member;
+    member: User;
   }[];
-
 
   @Output() groupMembers = new EventEmitter();
   @Output() groupTags = new EventEmitter();
@@ -33,9 +34,8 @@ export class MessagesComponent implements OnInit {
   sendMembers(){
     this.groupMembers.emit(this.members);
   }
-  public errorMsg;
-  constructor(private _groupsService:GroupService, private location:Location) {        
-   }
+  public errorMsg:any;
+  
 
   ngOnInit() {
 

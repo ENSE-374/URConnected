@@ -1,10 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Group} from '../models/group.model';
 import {Tag} from '../models/tag.model';
-
 import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
 import { Message } from '../models/Message';
-import { Member } from '../models/Member'
+import { User } from '../models/user.model';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
@@ -46,10 +45,6 @@ export class GroupService {
     this.groups.find(group => group.id === id).isSubscribed = false;
   }
 
-  //TODO: Update URLs for get/post Requests
-
-
-
 
   getMessages(id: number):Observable<Message[]> {
     //URL for get messages
@@ -64,7 +59,6 @@ export class GroupService {
  
   createMessage(data:string, groupId: number):Observable<Message>{
    const toSend:Message =  {group_id: groupId, sender: "aaa1c2c35ef7a4e97b5e9955", text: data};
-
    
         return this.http.post<Message>(this._URLCreateMessage, toSend)
           .pipe(tap(result => result),

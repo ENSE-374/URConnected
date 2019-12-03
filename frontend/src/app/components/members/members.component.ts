@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GroupService } from '../../services/group.service';
-import { Member } from '../../models/Member';
+import { User } from '../../models/user.model';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -10,7 +10,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./members.component.sass']
 })
 export class MembersComponent implements OnInit {
-  @Input() member:Member;
+  @Input() member:User;
   public errorMsg;
   constructor(private _groupsService:GroupService, private location:Location)
   { }

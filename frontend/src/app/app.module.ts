@@ -14,8 +14,9 @@ import { TagComponent } from './components/tag/tag.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {HomePageComponent} from './components/home-page/home-page.component';
 import {SearchBarComponent} from './components/search-bar/search-bar.component';
+import { ViewProfileComponent } from './components/view-profile/view-profile.component'
+import { GroupService } from '../app/services/group.service';
 
-import { GroupService } from '../app/services/group.service'
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { GroupService } from '../app/services/group.service'
     TagComponent,
     NavbarComponent,
     HomePageComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    ViewProfileComponent
   ],
   imports: [
     BrowserModule,

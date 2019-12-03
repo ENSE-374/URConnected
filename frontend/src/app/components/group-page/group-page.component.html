@@ -1,13 +1,15 @@
-<br>
-<div class="center card border-dark bg-white border-5" >
-      <div class="center card w-100 border-warning bg-light border-5" >
-   <h3 style="text-align: center;"><app-tag  *ngFor="let tag of groupTags;" [tag] = "tag">
-   </app-tag></h3>
-      </div>
+<div>
    <div class = "container">
       <div class = "row">
-         <div class = "col-7 card w-50 border-dark border-5"style="font-weight: bold;">
-               <app-messages 
+         <app-tag class = "card bg-secondary text-white tag-pad" *ngFor="let tag of groupTags;" [tag] = "tag">
+         </app-tag>
+      </div>      
+   </div>   
+   <div class = "container" >
+      <div class = "row">
+         <div class = "col-9">
+               <h4>Recent messages:</h4>
+               <app-messages
                [event] = "postMessage" 
                (groupTags)='updateTags($event)'
                (groupMembers)='updateMembers($event)'>
@@ -19,10 +21,10 @@
          </div>
          </div>
       </div>
-      <div class = "row card border-dark border-5">
-           <div class = "col-7"> 
-                 <app-create-message (postMessage)="messageSubmitted($event)"></app-create-message>
-            </div>
+      <div class = "row">
+         <div class = "col-9"> 
+            <app-create-message (postMessage)="messageSubmitted($event)"></app-create-message>
+         </div>
       </div>
    </div>
    </div>
