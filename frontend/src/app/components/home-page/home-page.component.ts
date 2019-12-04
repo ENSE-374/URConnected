@@ -20,9 +20,8 @@ export class HomePageComponent implements OnInit {
     this.groupService.getAllGroups()
       .subscribe( result => {
         this.groups = result["docs"];
-        this.groups[1].isSubscribed = true;
-      }); 
-      
+        this.groups[2].isSubscribed = true;
+      });
   }
 
   unsubscribeToGroup(id: number) {

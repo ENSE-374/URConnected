@@ -51,7 +51,7 @@ constructor(private _groupsService: GroupService, private location: Location, pr
       this.sendTags();
       this.sendMembers();
       this.populateMessagesToDisplay();
-     // console.log("data:", data);
+     console.log("data:", data);
     },
         error => this.errorMsg = error);
   }

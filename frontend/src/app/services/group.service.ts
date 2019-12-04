@@ -57,15 +57,12 @@ export class GroupService {
   //URL for create messages
   private _URLCreateMessage:string = "http://localhost:3000/messages";
  
-  createMessage(data:string, groupId: number):Observable<Message>{
-   const toSend:Message =  {group_id: groupId, sender: "aaa1c2c35ef7a4e97b5e9955", text: data};
-   
+  createMessage(data:string, groupId: number, userId: string): Observable<Message>{
+   const toSend:Message =  {group_id: groupId, sender: userId, text: data};
         return this.http.post<Message>(this._URLCreateMessage, toSend)
           .pipe(tap(result => result),
             catchError(this.errorHandler));
   }
-
-
   //URL for get tags
   private _URLTag:string = "/assets/deleteThis2.json";
   

@@ -11,6 +11,7 @@ import { Message } from '../../models/Message'
 })
 export class CreateMessageComponent implements OnInit {
   groupID: any;
+  userID: any;
   constructor(private _groupsService: GroupService, private location: Location, private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params => {
       this.groupID = params['id'];
@@ -25,8 +26,9 @@ export class CreateMessageComponent implements OnInit {
 
   newMessage(event)
   {
-    const value:string = event.target.parentNode.querySelector('#createMessage').value;
-    this._groupsService.createMessage(value, this.groupID)
+    this.userID = JSON.parse(localStorage.getItem('currentUser'))['user']['_id'];
+    const value: string = event.target.parentNode.querySelector('#createMessage').value;
+    this._groupsService.createMessage(value, this.groupID, this.userID)
     .subscribe(data => {
       this.createdMessage = data;
       location.reload();
