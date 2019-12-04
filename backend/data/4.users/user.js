@@ -8,7 +8,7 @@ const users = [
     email: 'sbakri@uregina.ca',
     password: '$2a$05$KfVSJD4jJsm71bGpSsMy0u7jGuJR0zliAmsS/rmFuMaDWKHw53J1m',
     verified: true,
-    verification: "3d005048-f869-4164-ab62-973b311c1c16",
+    verification: '3d005048-f869-4164-ab62-973b311c1c16',
     loginAttempts: 0,
     createdAt: faker.date.past(),
     updatedAt: faker.date.recent()
@@ -19,7 +19,7 @@ const users = [
     email: 'awambold@uregina.ca',
     password: '$2a$05$oyozr91Echiaa5./cJXTu.hj1Dj7xRfoYoIediAAi7YJlG.vBcjGS',
     verified: true,
-    verification: "3d005048-f869-4164-ab62-973b311c1c17",
+    verification: '3d005048-f869-4164-ab62-973b311c1c17',
     loginAttempts: 0,
     createdAt: faker.date.past(),
     updatedAt: faker.date.recent()
@@ -30,7 +30,7 @@ const users = [
     email: 'cjb543@uregina.ca',
     password: '$2a$05$YGcMioVhsn0G5zPDIQqljOdtz1essdOxId4MDqMxGqGtTcM.HFprq',
     verified: true,
-    verification: "3d005048-f869-4164-ab62-973b311c1c18",
+    verification: '3d005048-f869-4164-ab62-973b311c1c18',
     loginAttempts: 0,
     createdAt: faker.date.past(),
     updatedAt: faker.date.recent()
