@@ -23,7 +23,7 @@
         <span style="text-align: center">Tags:</span>
         <span *ngFor="let tag of group.tags" class="badge" style="font-size:large">- {{tag.name}}</span>
         <p style="font-size:large">Number of members: {{group.size}}</p>
-        <a routerLink="/group-page" [state]="{id: group['_id']}" style="text-align: center;">
+        <a [routerLink]="['/group-page']" [queryParams]="{id: group['_id']}" style="text-align: center;">
         <button *ngIf="group.isSubscribed" class="button1 btn-lg bg-light text-dark">Join Group Messenger <span class="fa fa-users"></span></button></a>
         <button *ngIf="group.isSubscribed" (click)="unsubscribeToGroup(group.id)" class="button1 btn-lg bg-danger text-white">Unsubscribe <span class="fa fa-minus-square"></span></button>
       </div>

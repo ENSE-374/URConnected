@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { GroupService} from '../../services/group.service';
 import { Message } from '../../models/Message';
 import { User } from '../../models/user.model';
 import { Tag } from '../../models/tag.model';
-import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -13,8 +13,12 @@ import { Location } from '@angular/common';
 })
 export class MessagesComponent implements OnInit {
 
-constructor(private _groupsService:GroupService, private location:Location) {        
-   }
+groupID: any;
+constructor(private _groupsService: GroupService, private location: Location, private route: ActivatedRoute) {
+  this.route.queryParams.subscribe(params => {
+    this.groupID = params['id'];
+  })
+}
   messages:Message[];
   members:User[];
   tags:Tag[];
@@ -39,7 +43,7 @@ constructor(private _groupsService:GroupService, private location:Location) {
 
   ngOnInit() {
 
-  this._groupsService.getMessages(this.location.getState()["id"])
+  this._groupsService.getMessages(this.groupID)
     .subscribe(data => {
       this.messages = data['messages'];
       this.members = data['members'];
